@@ -13,4 +13,5 @@ resume.pdf: $(EXAMPLES_DIR)/resume.tex $(RESUME_SRCS)
 	mv $(EXAMPLES_DIR)/$@ $@
 
 clean:
-	rm -rf $(EXAMPLES_DIR)/*.{pdf,aux,log,out}
+	rm -f $(EXAMPLES_DIR)/*.{pdf,aux,log,out}
+	rm -f *.pdf
