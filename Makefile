@@ -10,6 +10,7 @@ examples: $(foreach x, resume, $x.pdf)
 
 resume.pdf: $(EXAMPLES_DIR)/resume.tex $(RESUME_SRCS)
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+	mv $(EXAMPLES_DIR)/$@ $@
 
 clean:
-	rm -rf $(EXAMPLES_DIR)/*.pdf
+	rm -rf $(EXAMPLES_DIR)/*.{pdf,aux,log,out}
