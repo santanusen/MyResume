@@ -13,5 +13,7 @@ resume.pdf: $(EXAMPLES_DIR)/resume.tex $(RESUME_SRCS)
 	mv $(EXAMPLES_DIR)/$@ $@
 
 clean:
-	rm -f $(EXAMPLES_DIR)/*.{pdf,aux,log,out}
 	rm -f *.pdf
+
+distclean: clean
+	for EXT in pdf aux log out ; do rm -f $(EXAMPLES_DIR)/*.$${EXT}; rm -f *.$${EXT}; done
