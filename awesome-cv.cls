@@ -69,15 +69,7 @@
 % Needed to change line spacing in specific environment
 \RequirePackage{setspace}
 % Needed to manage fonts
-\RequirePackage[quiet]{fontspec}
-% To support LaTeX quoting style
-\defaultfontfeatures{Ligatures=TeX}
-% Needed to manage math fonts
-\RequirePackage{unicode-math}
-% Needed to use icons from font-awesome
-% (https://github.com/posquit0/latex-fontawesome)
-\RequirePackage{fontawesome}
-\RequirePackage[default,opentype]{sourcesanspro}
+\RequirePackage{resumefont}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
@@ -90,15 +82,6 @@
   pdfsubject={},
   pdfkeywords={}
 }
-
-
-%-------------------------------------------------------------------------------
-%                Configuration for directory locations
-%-------------------------------------------------------------------------------
-% Configure a directory location for fonts(default: 'fonts/')
-\newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
-\fontdir
-
 
 %-------------------------------------------------------------------------------
 %                Configuration for layout
@@ -166,33 +149,6 @@
 
 
 %-------------------------------------------------------------------------------
-%                Configuration for fonts
-%-------------------------------------------------------------------------------
-% Set the FontAwesome font to be up-to-date.
-%\newfontfamily\FA[Path=\@fontdir]{FontAwesome}
-\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
-% Set font for header (default is Roboto)
-\newfontfamily\headerfont[
-  Path=\@fontdir,
-  UprightFont=*-Regular,
-  ItalicFont=*-Italic,
-  BoldFont=*-Bold,
-  BoldItalicFont=*-BoldItalic,
-]{Roboto}
-
-\newfontfamily\headerfontlight[
-  Path=\@fontdir,
-  UprightFont=*-Thin,
-  ItalicFont=*-ThinItalic,
-  BoldFont=*-Medium,
-  BoldItalicFont=*-MediumItalic,
-]{Roboto}
-
-\newcommand*{\footerfont}{\sourcesanspro}
-\newcommand*{\bodyfont}{\sourcesanspro}
-\newcommand*{\bodyfontlight}{\sourcesansprolight}
-
-%-------------------------------------------------------------------------------
 %                Configuration for styles
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
@@ -212,15 +168,15 @@
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\bfseries\color{awesome2} #1}}
 \newcommand*{\hentrytitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\bfseries\color{darktext} #1}}
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\entrypubsubstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome2} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{awesome2} #1}}
+\newcommand*{\entrypubsubstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\slshape\color{awesome2} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{awesome2} #1}}
 \newcommand*{\entrynotestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 \newcommand*{\entrypubstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{darktext} #1}}
 
 % For elements of subentry
-\newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
+\newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{awesome2} #1}}
 \newcommand*{\subentrypositionstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\subentrydatestyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\subentrylocationstyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
@@ -561,7 +517,6 @@
     \ifthenelse{\equal{\@photoalign}{right}}{\raggedleft\drawphoto}{}
   \end{minipage}
 }
-
 % Define a footer for CV
 % Usage: \makecvfooter{<left>}{<center>}{<right>}
 \newcommand*{\makecvfooter}[3]{%
@@ -638,7 +593,7 @@
 %  \setlength{\extrarowheight}{0pt}
 \newcommand*{\honorsubentry}[2]{%
   \begin{tabular*}{\textwidth - 0.2cm}{@{\extracolsep{\fill}} L{\textwidth - 2.7cm} R{2.5cm}}
-      \descriptionstyle{#1} & \entrydatestyle{#2}
+      \descriptionstyle{#1} & \entrylocationstyle{#2  }
   \end{tabular*}%
 }
 
@@ -650,7 +605,7 @@
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 3.0cm} R{3.0cm}}
     \ifempty{#2#3}
-	  {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+	  {\entrypositionstyle{#1} & \entrylocationstyle{#4} \\}
 	  {\hentrytitlestyle{#2,} \entrypositionstyle{#1} & \entrydatestyle{#3} \\}
     \multicolumn{2}{L{\textwidth - 0.2cm}}{#4}
   \end{tabular*}%
@@ -676,17 +631,17 @@
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 2cm} R{2cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 1.5cm} R{1.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & {} \\}
       {\entrypubstyle{#1} & \entrydatestyle{#3} \\
-      \entrypubsubstyle{#2} \\}
+       \hspace{3mm}\entrypubsubstyle{#2} \\}
   \end{tabular*}%
 }
 
 % Define an entry of experience information
 % Usage: \expentry{<position>#1}{<title>#2}{<subtitle>#3}{<location>#4}{<date>#5}{<description>#6}
-\newcommand*{\expentry}[6]{%
+\newcommand*{\expentryold}[6]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
@@ -698,6 +653,23 @@
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}}
   \end{tabular*}%
 }
+
+% Define an entry of experience information
+% Usage: \expentry{<position>#1}{<title>#2}{<subtitle>#3}{<location>#4}{<date>#5}{<description>#6}
+\newcommand*{\expentry}[7]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+	  {\entrypositionstyle{#1} & \entrydatestyle{#5} \\}
+	  {\entrytitlestyle{#2} \subentrytitlestyle{#3} & \entrydatestyle{#5} \\
+	  \entrypositionstyle{#1} & \entrylocationstyle{#6}\\}
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#7}}
+  \end{tabular*}%
+}
+
+
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
   \begin{center}

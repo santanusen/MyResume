@@ -1,0 +1,83 @@
+
+% Needed to manage fonts
+\RequirePackage[quiet]{fontspec}
+% To support LaTeX quoting style
+\defaultfontfeatures{Ligatures=TeX}
+% Needed to manage math fonts
+\RequirePackage{unicode-math}
+
+%\usepackage[bitstream-charter]{mathdesign}
+%\RequirePackage[T1]{fontenc}
+
+% Needed to use icons from font-awesome
+% (https://github.com/posquit0/latex-fontawesome)
+\RequirePackage{fontawesome}
+
+%-------------------------------------------------------------------------------
+%                Configuration for directory locations
+%-------------------------------------------------------------------------------
+% Configure a directory location for fonts(default: 'fonts/')
+\newcommand*{\fontdir}[1][fonts/]{\def\@fontdir{#1}}
+\fontdir
+
+
+%-------------------------------------------------------------------------------
+%                Configuration for fonts
+%-------------------------------------------------------------------------------
+% Set the FontAwesome font to be up-to-date.
+%\newfontfamily\FA[Path=\@fontdir]{FontAwesome}
+%\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
+% Set font for header (default is Roboto)
+\newfontfamily\roboto[
+  Path=\@fontdir,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{Roboto}
+
+\newfontfamily\robotolight[
+  Path=\@fontdir,
+  UprightFont=*-Thin,
+  ItalicFont=*-ThinItalic,
+  BoldFont=*-Medium,
+  BoldItalicFont=*-MediumItalic,
+]{Roboto}
+
+%-------------------------------------------------------------------------------
+%                sourcesanspro
+%-------------------------------------------------------------------------------
+%\RequirePackage[default,opentype]{sourcesanspro}
+%\newcommand*{\resumefont}{\sourcesanspro}
+%\newcommand*{\resumefontlight}{\sourcesansprolight}
+
+%-------------------------------------------------------------------------------
+%                sourceserifpro
+%-------------------------------------------------------------------------------
+\RequirePackage[default,opentype]{sourceserifpro}
+\newcommand*{\resumefont}{\sourceserifpro}
+\newcommand*{\resumefontlight}{\sourceserifprolight}
+
+%-------------------------------------------------------------------------------
+%                Alegreya
+%-------------------------------------------------------------------------------
+%\RequirePackage[]{Alegreya}
+%\newcommand*{\resumefont}{\Alegreya}
+%\newcommand*{\resumefontlight}{\Alegreya}
+
+%-------------------------------------------------------------------------------
+%                DejaVu
+%-------------------------------------------------------------------------------
+%\RequirePackage[]{dejavu-otf}
+%\newcommand*{\resumefont}{\DejaVuSerifCondensed}
+%\newcommand*{\resumefontlight}{\DejaVuSerifCondensed}
+
+%-------------------------------------------------------------------------------
+%                Set Fonts
+%-------------------------------------------------------------------------------
+\newcommand*{\headerfont}{\resumefont}
+\newcommand*{\headerfontlight}{\resumefontlight}
+\newcommand*{\footerfont}{\resumefontlight}
+\newcommand*{\bodyfont}{\resumefont}
+\newcommand*{\bodyfontlight}{\resumefontlight}
+
