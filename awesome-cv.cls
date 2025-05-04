@@ -170,7 +170,7 @@
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\entrypubsubstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\slshape\color{awesome2} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\scshape\color{awesome2} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\scshape\color{darktext} #1}}
 \newcommand*{\entrynotestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 \newcommand*{\entrypubstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{darktext} #1}}
@@ -613,20 +613,6 @@
 
 % Define an entry of pub information
 % Usage: \pubentry{<title>}{<location>}{date}
-\newcommand*{\xpubentry}[3]{%
-  \vspace{-2.0mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \ifempty{#2#3}
-      {\entrypositionstyle{#1} & \entrydatestyle{#2} \\}
-      {\entrypubstyle{#1} \\
-       \entrypositionstyle{#2} & \entrydatestyle{#3} \\}
-  \end{tabular*}%
-}
-
-% Define an entry of pub information
-% Usage: \pubentry{<title>}{<location>}{date}
 \newcommand*{\pubentry}[3]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
@@ -636,21 +622,6 @@
       {\entrypositionstyle{#1} & {} \\}
       {\entrypubstyle{#1} & \entrydatestyle{#3} \\
        \hspace{3mm}\entrypubsubstyle{#2} \\}
-  \end{tabular*}%
-}
-
-% Define an entry of experience information
-% Usage: \expentry{<position>#1}{<title>#2}{<subtitle>#3}{<location>#4}{<date>#5}{<description>#6}
-\newcommand*{\expentryold}[6]{%
-  \vspace{-2.0mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \ifempty{#2#3}
-	  {\entrypositionstyle{#1} & \entrydatestyle{#5} \\}
-	  {\entrytitlestyle{#2} & \entrydatestyle{#4} \\
-	  \entrypositionstyle{#1} & \entrylocationstyle{#5}\\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}}
   \end{tabular*}%
 }
 
