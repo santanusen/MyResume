@@ -153,15 +153,15 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{20pt}{1em}\headerfont\color{awesome} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{20pt}{1em}\headerfontlight\color{awesome} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{18pt}{1em}\headerfont\color{awesome} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{18pt}{1em}\headerfontlight\color{awesome2} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{lighttext} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
-\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfontlight\bfseries\color{text}\@sectioncolor #1}}
-\newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfontlight\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\subsectionstyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\bfseries\color{awesome2}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry
@@ -170,7 +170,7 @@
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\entrypubsubstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\slshape\color{awesome2} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{awesome2} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\scshape\color{awesome2} #1}}
 \newcommand*{\entrynotestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 \newcommand*{\entrypubstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{darktext} #1}}
@@ -563,16 +563,16 @@
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand*{\cventry}[5]{%
+\newcommand*{\cventry}[6]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-      {\entrytitlestyle{#2} & \entrydatestyle{#4} \\
-      \entrypositionstyle{#1} & \entrylocationstyle{#3} \\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+      {\entrytitlestyle{#2} \subentrytitlestyle{#3} & \entrydatestyle{#5} \\
+      \entrypositionstyle{#1, #4} \\}
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}}
   \end{tabular*}%
 }
 
@@ -593,7 +593,7 @@
 %  \setlength{\extrarowheight}{0pt}
 \newcommand*{\honorsubentry}[2]{%
   \begin{tabular*}{\textwidth - 0.2cm}{@{\extracolsep{\fill}} L{\textwidth - 2.7cm} R{2.5cm}}
-      \descriptionstyle{#1} & \entrylocationstyle{#2  }
+      \descriptionstyle{#1} & \entrydatestyle{#2  }
   \end{tabular*}%
 }
 
@@ -606,7 +606,7 @@
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 3.0cm} R{3.0cm}}
     \ifempty{#2#3}
 	  {\entrypositionstyle{#1} & \entrylocationstyle{#4} \\}
-	  {\hentrytitlestyle{#2,} \entrypositionstyle{#1} & \entrydatestyle{#3} \\}
+	  {\hentrytitlestyle{#2,} \entrypositionstyle{#1} \\}
     \multicolumn{2}{L{\textwidth - 0.2cm}}{#4}
   \end{tabular*}%
 }
