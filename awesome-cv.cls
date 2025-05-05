@@ -170,7 +170,7 @@
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\entrypubsubstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\slshape\color{awesome2} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\scshape\color{darktext} #1}}
+\newcommand*{\entrylocationstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\scshape\color{awesome2} #1}}
 \newcommand*{\entrynotestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 \newcommand*{\entrypubstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{darktext} #1}}
