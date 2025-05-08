@@ -55,7 +55,7 @@
 %                sourceserifpro
 %-------------------------------------------------------------------------------
 \RequirePackage[default,opentype]{sourceserifpro}
-\newcommand*{\resumefont}{\sourceserifpro}
+%\newcommand*{\resumefont}{\sourceserifpro}
 \newcommand*{\resumefontlight}{\sourceserifprolight}
 
 %-------------------------------------------------------------------------------
@@ -73,11 +73,95 @@
 %\newcommand*{\resumefontlight}{\DejaVuSerifCondensed}
 
 %-------------------------------------------------------------------------------
+%                EBGaramond
+%-------------------------------------------------------------------------------
+%\newfontfamily\garamond[
+%  Path=/usr/share/fonts/opentype/ebgaramond/,
+%  UprightFont=*-Regular,
+%  ItalicFont=*-Italic,
+%  BoldFont=*-Bold,
+%  BoldItalicFont=*-Italic,
+%]{EBGaramond12}
+%
+%\newfontfamily\garamondlight[
+%  Path=/usr/share/fonts/opentype/ebgaramond/,
+%  UprightFont=*-Regular,
+%  ItalicFont=*-Italic,
+%  BoldFont=*-Regular,
+%  BoldItalicFont=*-Italic,
+%]{EBGaramond08}
+%
+%\newcommand*{\resumefont}{\garamond}
+%\newcommand*{\resumefontlight}{\garamondlight}
+
+%-------------------------------------------------------------------------------
+%                Georgia-Pro
+%-------------------------------------------------------------------------------
+%\newfontfamily\georgiapro[
+%  Path=/usr/share/fonts/truetype/georgia-pro/,
+%  UprightFont=*-Regular,
+%  ItalicFont=*-Italic,
+%  BoldFont=*-Bold,
+%  BoldItalicFont=*-BoldItalic,
+%]{GeorgiaPro}
+%
+%\newfontfamily\georgiaprolight[
+%  Path=/usr/share/fonts/truetype/georgia-pro/,
+%  UprightFont=*-Light,
+%  ItalicFont=*-LightItalic,
+%  BoldFont=*-SemiBold,
+%  BoldItalicFont=*-SemiBoldItalic,
+%]{GeorgiaPro}
+%
+%\newcommand*{\resumefont}{\georgiapro}
+%\newcommand*{\resumefontlight}{\georgiaprolight}
+
+%-------------------------------------------------------------------------------
+%                Calibri
+%-------------------------------------------------------------------------------
+%\newfontfamily\calibri[
+%  Path=/mnt/c/Windows/Fonts/,
+%  UprightFont=*,
+%  ItalicFont=*i,
+%  BoldFont=*b,
+%  BoldItalicFont=*z,
+%]{calibri}
+%
+\newfontfamily\calibrilight[
+  Path=/mnt/c/Windows/Fonts/,
+  UprightFont=*l,
+  ItalicFont=*li,
+  BoldFont=*,
+  BoldItalicFont=*i,
+]{calibri}
+
+%\newcommand*{\resumefont}{\calibri}
+%\newcommand*{\resumefontlight}{\calibrilight}
+\newcommand*{\resumedescrfontlight}{\calibrilight}
+
+
+%-------------------------------------------------------------------------------
+%                Cambria
+%-------------------------------------------------------------------------------
+\newfontfamily\cambria[
+  Path=/mnt/c/Windows/Fonts/,
+  UprightFont=*,
+  ItalicFont=*i,
+  BoldFont=*b,
+  BoldItalicFont=*z,
+]{cambria}
+
+\newcommand*{\resumefont}{\cambria}
+%\newcommand*{\resumefontlight}{\cambria}
+
+%-------------------------------------------------------------------------------
 %                Set Fonts
 %-------------------------------------------------------------------------------
 \newcommand*{\headerfont}{\resumefont}
 \newcommand*{\headerfontlight}{\resumefontlight}
 \newcommand*{\footerfont}{\resumefontlight}
-\newcommand*{\bodyfont}{\resumefont}
-\newcommand*{\bodyfontlight}{\resumefontlight}
+
+\newcommand*{\titlefont}{\resumefont}
+\newcommand*{\titlefontlight}{\resumefontlight}
+\newcommand*{\descrfontlight}{\resumedescrfontlight}
 
